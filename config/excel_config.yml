@@ -1,0 +1,19 @@
+#rangeで設定された最大レコードに達する前にsentinelで設定した値が発見されると、その時点で読み込みを中断します.
+common: &common
+  !ruby/sym sentinel:   'END_OF_EXCEL_SHEET_RECORD'
+
+development:
+  <<: *common
+  #!ruby/sym file_path:  'C:/ruby_farm/spider/super_awesome_crawler/config/test.xls'  
+  !ruby/sym file_path:  'C:/Users/username/Documents/My Dropbox/ruby_farm/spider/super_awesome_crawler/config/development.xls'
+  !ruby/sym range:      'A1:EL2000'
+
+test:
+  <<: *common
+  !ruby/sym file_path:  'C:/TEMP/super_awesome_crawler/config/operation_manual.xls'
+  !ruby/sym range:      'A1:EL3'
+
+product:
+  <<: *common
+  !ruby/sym file_path:  'D:/ruby_farm/spider/super_awesome_crawler/config/operation_manual.xls'
+  !ruby/sym range:      'A1:EL3'

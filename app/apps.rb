@@ -1,0 +1,5 @@
+require File.expand_path("../selector/base", __FILE__)
+require File.expand_path("../operation/analyzer", __FILE__)
+require File.expand_path("../operation/operation", __FILE__)
+require File.expand_path("../page/page", __FILE__)
+require File.expand_path("../route/route", __FILE__)
