@@ -22,7 +22,7 @@ class SuperAwesomeCrawler < Thor
   
   desc "analyze command env", "config/excel_config.ymlで指定されたExcelを読み込んで、そこで指定されたページの要素を出力する."
   def analyze(command, env)
-    raise AugmentError, "invalid augment #{command}. usage: #{COMMANS.keys} ." unless COMMANS[command.to_sym]
+    raise ArgumentError, "invalid augment #{command}. usage: #{COMMANS.keys} ." unless COMMANS[command.to_sym]
     
     excel_config = YAML.load_file('config/excel_config.yml')[env]
     book         = ExcelReader::Book.new(file_path: excel_config[:file_path], range: excel_config[:range], sentinel: excel_config[:sentinel])
